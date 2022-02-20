@@ -44,15 +44,64 @@ weight = 9
 # print(Box)
 
 # NESTED CONDITIONALS STATEMENTS PLUS THE TERNARY OPERATOR
-Box = ''
-if color == 'Blue':
-    Box = 'Blue box with weight greater than 10' if weight > 10 else 'Blue box with weight less than 10'
-elif color == 'Red':
-    Box = 'Red box with weight greater than 10' if weight > 10 else 'Red box with weight less than 10'
-else:
-    Box = 'Neither Red nor blue box with weight greater than 10' if weight > 10 else 'Neither Red nor blue box with weight less than 10'
+# Box = ''
+# if color == 'Blue':
+#     Box = 'Blue box with weight greater than 10' if weight > 10 else 'Blue box with weight less than 10'
+# elif color == 'Red':
+#     Box = 'Red box with weight greater than 10' if weight > 10 else 'Red box with weight less than 10'
+# else:
+#     Box = 'Neither Red nor blue box with weight greater than 10' if weight > 10 else 'Neither Red nor blue box with weight less than 10'
 
-print(Box)
+# print(Box)
+
+# Boxes = []
+# Boxes.append('Box1')
+# Boxes.append('Box2')
+# Boxes.append('Box3')
+# Boxes.append('Box4')
+# Boxes.append('Box5')
+# Boxes.append('Box6')
+
+# count = 0
+# while count < len(Boxes):
+#     print(Boxes[count])
+#     count = count + 1
+
+# for box in Boxes:
+#     print(box)
+
+# for i in range(10):
+#     print(i)
+
+# for i in range(2, 10, 3):
+#     print(i)
+
+# for i in range(1, 20, 5):
+#     print(i)
+
+
+# for i in range(100):
+#     if i >= 10 and i < 95:
+#         continue
+#     elif i == 96 or (i >= 3 and i <= 6):
+#         pass
+#     else:
+#         print(i)
+# else:
+#     print("Loop ends")
+
+# i = 0
+# while i < 100:
+#     i = i + 1
+#     if i >= 10 and i < 95:
+#         continue
+#     elif i == 96 or (i >= 3 and i <= 6):
+#         pass
+#     else:
+#         print(i)
+# else:
+#     print("Loop ends")
+
 
 # print("Red box") if color == 'Red' and (weight > 10 or weight <= 10) else print(
 #     "Blue Box") if color == 'Blue' and (weight > 10 or weight <= 10) else print("Neither Blue nor Red")
