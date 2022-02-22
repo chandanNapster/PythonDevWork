@@ -117,3 +117,79 @@ weight = 9
 #     print("Red box weight 40")
 # else:
 #     print("Color is neither Red nor Blue")
+
+
+Boxes = []
+box1 = []
+box1.append("Red")
+box1.append(10)
+
+box2 = []
+box2.append("Blue")
+box2.append(20)
+
+box3 = []
+box3.append("Red")
+box3.append(14)
+
+box4 = []
+box4.append("Green")
+box4.append(8)
+
+Boxes.append(box1)
+Boxes.append(box2)
+Boxes.append(box3)
+Boxes.append(box4)
+
+
+print(Boxes)
+
+num_of_red_boxes = 0
+num_of_blue_boxes = 0
+
+
+for box in Boxes:
+    for content in box:
+        if content == 'Red':
+            num_of_red_boxes = num_of_red_boxes + 1
+        elif content == 'Blue':
+            num_of_blue_boxes += 1
+
+
+print(num_of_red_boxes)
+print(num_of_blue_boxes)
+
+
+print("***************************")
+num_of_red_boxes = 0
+num_of_blue_boxes = 0
+
+
+for box in Boxes:
+    if box[0] == 'Red':
+        num_of_red_boxes += 1
+    elif box[0] == 'Blue':
+        num_of_blue_boxes += 1
+
+print(num_of_red_boxes)
+print(num_of_blue_boxes)
+
+print("***************************")
+num_of_red_boxes = 0
+num_of_blue_boxes = 0
+weight_of_red_box = 0
+weight_of_blue_boxes = 0
+
+
+for box in Boxes:
+    if box[0] == 'Red':
+        num_of_red_boxes += 1
+        weight_of_red_box += box[1]
+    elif box[0] == 'Blue':
+        num_of_blue_boxes += 1
+        weight_of_blue_boxes += box[1]
+
+print(num_of_red_boxes)
+print(weight_of_red_box)
+print(num_of_blue_boxes)
+print(weight_of_blue_boxes)
