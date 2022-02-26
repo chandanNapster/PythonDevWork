@@ -29,10 +29,12 @@ def createBox(color, weight, isBreakable):
     return Box(color, weight, isBreakable)
 
 
-# print(Boxes)
 b = createBox("Yellow", 4, False)
-
 addBoxes(b)
+
+addBoxes(createBox("Red", 23, True))
+
+
 # print(Boxes)
 
 
@@ -54,17 +56,46 @@ def userInputSearchBoxes():
         color = input("Enter the color of box or press q to quit :")
 
 
-colDict = {'col1': 'Red', 'col2': 'Blue'}
+colDict = {}
 
 
 def findMultipleBoxes(**param):
     for color in param.values():
-        print(color)
         print(findBoxes(color))
 
-# print(findBoxes('Red'))
+
+def createABoxDict(color, index):
+    col = 'col' + str(index)
+    colDict[col] = color
+    return colDict
 
 
-userInputSearchBoxes()
+def userInputSearchMultipleBoxes():
+    userInput = input("Press any key to continue or press q to quit :")
+    dict_index = 0
+    while userInput.casefold() != 'q':
+        color = input(
+            "Enter box color you wish to search for or press q to stop :")
+        if color.casefold() != 'q':
+            createABoxDict(color, dict_index)
+        dict_index += 1
+        userInput = color
+    findMultipleBoxes(**colDict)
 
-findMultipleBoxes(**colDict)
+
+# userInputSearchBoxes()
+# findMultipleBoxes(**colDict)
+userInputSearchMultipleBoxes()
+# print(colDict)
+# print(createABoxDict('Red', 3))
+
+
+def testArg(*list):
+    for item in list:
+        print(item)
+
+
+listA = {'k1': 1, 'k2': 2, 'k3': 3, 'k4': 4}
+
+testArg(1, 2)
+testArg(1, 2, 3, 4)
