@@ -1,1 +1,10 @@
 https://www.educba.com/is-python-object-oriented/?source=leftnav
+
+
+
+
+URL FOR WORKING WITH EXCEL
+https://www.geeksforgeeks.org/working-with-excel-spreadsheets-in-python/
+
+
+https://www.geeksforgeeks.org/python-plotting-charts-in-excel-sheet-using-openpyxl-module-set-2/
