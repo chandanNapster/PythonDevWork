@@ -11,111 +11,129 @@ import xlrd
 workbook = xlrd.open_workbook('excel.xlsx')
 
 excel_sheet = workbook.sheet_by_index(0)
-excel_sheet.cell_value(0, 0)
+# excel_sheet.cell_value(0, 0)
 
-for i in range(excel_sheet.ncols):
-    print(excel_sheet.cell_value(i, 0),
-          excel_sheet.cell_value(i, 1),
-          excel_sheet.cell_value(i, 2))
+# print(excel_sheet.ncols)
 
+# r1 = range(excel_sheet.ncols)
 
-wb_obj = openpyxl.load_workbook('excel.xlsx')
-sheet_obj = wb_obj.active
-cell_obj = sheet_obj.cell(row=1, column=2)
+# print(r1)
+# print(excel_sheet.nrows)
 
-print(cell_obj.value)
+rows = excel_sheet.nrows
+cols = excel_sheet.ncols
 
-row = sheet_obj.max_row
-column = sheet_obj.max_column
+# for i in range(rows):
+#     print(excel_sheet.cell_value(i, 0), excel_sheet.cell_value(
+#         i, 1), excel_sheet.cell_value(i, 2))
 
+rowList = []
+list = []
 
-print(row, column)
+for row in range(rows):
+    for col in range(cols):
+        # print(excel_sheet.cell_value(row, col))
+        rowList.append(excel_sheet.cell_value(row, col))
 
-
-for rw in range(1, row + 1):
-    for col in range(1, column + 1):
-        cell_obj = sheet_obj.cell(row=rw, column=col)
-        print(cell_obj.value)
-
-
-cell_obj = sheet_obj['A1':'B7']
-
-for cell1, cell2 in cell_obj:
-    print(cell1.value, cell2.value)
+    rowList.append("\n")
+    # list.append(rowList)
 
 
-wb = openpyxl.Workbook()
+print(rowList)
 
-sheet = wb.active
+# for col in range(cols):
+#     for row in range(rows):
+#         print(excel_sheet.cell_value(row, col))
+# wb_obj = openpyxl.load_workbook('excel.xlsx')
+# sheet_obj = wb_obj.active
+# cell_obj = sheet_obj.cell(row=1, column=2)
 
-for i in range(10):
-    sheet.append([i])
+# print(cell_obj.value)
 
+# row = sheet_obj.max_row
+# column = sheet_obj.max_column
 
-values = Reference(sheet, min_col=1,
-                   min_row=1,
-                   max_col=1,
-                   max_row=10)
+# print(row, column)
 
-chart = LineChart()
-chart.add_data(values)
-chart.title = "BAR CHART"
+# for rw in range(1, row + 1):
+#     for col in range(1, column + 1):
+#         cell_obj = sheet_obj.cell(row=rw, column=col)
+#         print(cell_obj.value)
 
-chart.x_axis.title = "X_AXIS"
-chart.y_axis.title = "Y_AXIS"
+# cell_obj = sheet_obj['A1':'B7']
 
-sheet.add_chart(chart, 'E2')
+# for cell1, cell2 in cell_obj:
+#     print(cell1.value, cell2.value)
 
-wb.save('sample.xlsx')
+# wb = openpyxl.Workbook()
 
+# sheet = wb.active
 
-wb = openpyxl.Workbook()
+# for i in range(10):
+#     sheet.append([i])
 
-sheet = wb.active
+# values = Reference(sheet, min_col=1,
+#                    min_row=1,
+#                    max_col=1,
+#                    max_row=10)
 
-rows = [
-    ("Number of Products", "Sales in USD", "Market Share"),
-    (14, 12200, 15),
-    (20, 60000, 33),
-    (18, 24400, 10),
-    (22, 32000, 42)
-]
+# chart = LineChart()
+# chart.add_data(values)
+# chart.title = "BAR CHART"
 
-for row in rows:
-    sheet.append(row)
+# chart.x_axis.title = "X_AXIS"
+# chart.y_axis.title = "Y_AXIS"
 
+# sheet.add_chart(chart, 'E2')
 
-chart = BubbleChart()
+# wb.save('sample.xlsx')
 
-# create data for plotting
-xvalues = Reference(sheet, min_col=1,
-                    min_row=2, max_row=5)
+# wb = openpyxl.Workbook()
 
-yvalues = Reference(sheet, min_col=2,
-                    min_row=2, max_row=5)
+# sheet = wb.active
 
-size = Reference(sheet, min_col=3,
-                 min_row=2, max_row=5)
+# rows = [
+#     ("Number of Products", "Sales in USD", "Market Share"),
+#     (14, 12200, 15),
+#     (20, 60000, 33),
+#     (18, 24400, 10),
+#     (22, 32000, 42)
+# ]
 
-# create a 1st series of data
-series = Series(values=yvalues, xvalues=xvalues,
-                zvalues=size, title="2013")
+# for row in rows:
+#     sheet.append(row)
 
-# add series data to the chart object
-chart.series.append(series)
+# chart = BubbleChart()
 
-# set the title of the chart
-chart.title = " BUBBLE-CHART "
+# # create data for plotting
+# xvalues = Reference(sheet, min_col=1,
+#                     min_row=2, max_row=5)
 
-# set the title of the x-axis
-chart.x_axis.title = " X_AXIS "
+# yvalues = Reference(sheet, min_col=2,
+#                     min_row=2, max_row=5)
 
-# set the title of the y-axis
-chart.y_axis.title = " Y_AXIS "
+# size = Reference(sheet, min_col=3,
+#                  min_row=2, max_row=5)
 
-# add chart to the sheet
-# the top-left corner of a chart
-# is anchored to cell E2 .
-sheet.add_chart(chart, "E2")
+# # create a 1st series of data
+# series = Series(values=yvalues, xvalues=xvalues,
+#                 zvalues=size, title="2013")
 
-wb.save("BubbleChart.xlsx")
+# # add series data to the chart object
+# chart.series.append(series)
+
+# # set the title of the chart
+# chart.title = " BUBBLE-CHART "
+
+# # set the title of the x-axis
+# chart.x_axis.title = " X_AXIS "
+
+# # set the title of the y-axis
+# chart.y_axis.title = " Y_AXIS "
+
+# # add chart to the sheet
+# # the top-left corner of a chart
+# # is anchored to cell E2 .
+# sheet.add_chart(chart, "E2")
+
+# wb.save("BubbleChart.xlsx")
