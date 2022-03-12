@@ -26,13 +26,3 @@ class CleanData:
         for word in sentence.split():
             colName += word[0].upper() + word[1:].lower()
         return colName
-
-    def methodOverloading(self, a=None, b=None, c=None):
-        if a != None and b != None and c != None:
-            s = a+b+c
-        elif a != None and b != None:
-            s = a + b
-        else:
-            s = a
-
-        return s
