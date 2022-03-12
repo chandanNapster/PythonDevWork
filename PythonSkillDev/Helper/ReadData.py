@@ -3,7 +3,7 @@ import re
 
 
 class CleanData:
-    __location = ''
+    # __location = ''
 
     def __init__(self, location):
         self.__location = location
