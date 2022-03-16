@@ -74,6 +74,6 @@ print(dataFrame.info())
 # j = sns.histplot(data=dataFrame, x='AudienceRatings', kde=True)
 
 j = sns.jointplot(data=dataFrame, x='RottenTomatoesRatings',
-                  y='AudienceRatings', kind='resid')
+                  y='AudienceRatings', kind='reg')
 
 plt.show()
