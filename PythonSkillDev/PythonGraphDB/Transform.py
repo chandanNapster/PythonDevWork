@@ -18,7 +18,9 @@ class CreateCypherQuery:
 if __name__ == "__main__":
     fd = FetchData()
     list = fd.fetchGithubMainPage()
-    fd.getUsersDetails(list)
+    print(fd.getUsersDetails(list))
+
+    # print(list)
 
     # for item in list:
     #     print(item)

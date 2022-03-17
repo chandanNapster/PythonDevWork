@@ -32,7 +32,6 @@ class FetchData:
         dom = self.getRequestToGithub(url)
         self.getAllUserData(int(self.getTotalPages(dom.select("em"))))
         nameListMain = self.displayList()
-        # print(nameListMain)
         return nameListMain
 
     def getUserInfo(self, url):
@@ -50,7 +49,6 @@ class FetchData:
 
     def getAllUserData(self, total_pages):
         print(total_pages)
-        # # TEST CONDITION
         total_pages = 1
         for i in range(0, total_pages):
             i = i + 1
@@ -77,25 +75,28 @@ class FetchData:
                 total_pages = tp.get("data-total-pages")
         return total_pages
 
-    # fetchGithubMainPage()
     def getUsersDetails(self, list):
+        users = []
         for item in list:
-            # print(item)
-            # print(self.getRequestToGithub(item))
-            item += "/graphs/contributors"
-            print(item)
-            dom = self.getRequestToGithub(item)
+            itemstr = str(item)
 
-            dom = dom.select("div.graphs li a")
-
-            for item in dom:
-                print(item.attrs["href"][1:])
-
-            # print(dom.select("ol"))
-            # list = dom.find_all("ol")
-            # print("The list is", list)
-            break
-
+            if "stargazers" in itemstr.casefold():
+                pass
+            else:
+                print(item)
+                dom = self.getRequestToGithub(item)
+                sleep(randint(self.MIN_WAIT_TIME, self.MAX_WAIT_TIME))
+                for links in dom.find_all("div"):
+                    link = links.find('a')
+                    if link == None or not ("class" in link.attrs):
+                        continue
+                    else:
+                        if('commit-author' in link.attrs['class'] or 'user-mention' in link.attrs['class']):
+                            print(link.attrs['href'])
+                            users.append(link.attrs['href'])
+                print("########################")
+        users = set(users)
+        return users
 
 # if __name__ == "__main__":
 #     f = FetchData()
