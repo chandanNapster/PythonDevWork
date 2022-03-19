@@ -1,20 +1,17 @@
-import csv
-
-lista = ["chandan", "sharma", "34", "65"]
-
-
-with open("Names.csv", 'w', newline='') as file:
-    write = csv.writer(file)
-    write.writerows(lista)
+import time
+from loadbar import LoadBar
 
 
-def run():
-    lista = [1, 1, 2, 3, 4]
-    # seta = {1, 1, 1, 1, 2, 3, 4}
-    seta = set(lista)
+def test():
+    bar = LoadBar(
+        max=5
+    )
+    bar.start()
+    for x in range(5):
+        bar.update(step=x)
+        time.sleep(1)
+    bar.end()
 
-    print(seta)
 
-
-if __name__ == '__main__':
-    run()
+if __name__ == "__main__":
+    test()
