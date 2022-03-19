@@ -34,8 +34,6 @@ class CreateCypherQuery:
 
     def getCypherString(self):
         last_index = len(self.__cypherString) - 1
-        # print()
-        print(last_index)
         resultString = ""
         resultString = self.__cypherString[0:int(last_index)]
         return resultString

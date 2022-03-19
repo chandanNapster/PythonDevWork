@@ -48,7 +48,7 @@ class FetchData:
 
     def __getAllUserData(self, total_pages):
         print(total_pages)
-        total_pages = 1
+        total_pages = 4
         for i in range(0, total_pages):
             i = i + 1
             url = self.__URL.format(i, self.GIT_HUB_SEARCH_STRING)
