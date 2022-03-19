@@ -1,5 +1,4 @@
 import requests as rq
-import json as js
 from bs4 import BeautifulSoup
 from time import sleep
 from random import randint

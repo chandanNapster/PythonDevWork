@@ -32,10 +32,3 @@ class Neo4jConnection:
             if session is not None:
                 session.close()
         return response
-
-
-if __name__ == "__main__":
-    greeter = Neo4jConnection("bolt://localhost:7687", "neo4j", "chandan")
-    q = "MATCH (a) RETURN a"
-    res = greeter.query(q)
-    print(res)

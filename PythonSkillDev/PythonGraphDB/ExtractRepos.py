@@ -1,9 +1,7 @@
 import requests as rq
-import json as js
 from bs4 import BeautifulSoup
 from time import sleep
 from random import randint
-import csv
 
 
 class FetchData:
@@ -75,39 +73,3 @@ class FetchData:
             else:
                 total_pages = tp.get("data-total-pages")
         return total_pages
-
-    # def getUsersDetails(self, list):
-    #     users = []
-    #     for item in list:
-    #         itemstr = str(item)
-    #         # print(itemstr)
-
-    #         if "stargazers" in itemstr.casefold():
-    #             pass
-    #         else:
-    #             print(item)
-    #             dom = self.getRequestToGithub(item)
-    #             dom = dom.select(
-    #                 "div.css-truncate.css-truncate-overflow.color-fg-muted > a")
-    #             sleep(randint(self.MIN_WAIT_TIME, self.MAX_WAIT_TIME))
-
-    #             for link in dom:
-    #                 print(link.text, "https://www.github.com" +
-    #                       link.attrs["href"])
-    #             # dom = self.getRequestToGithub(item)
-    #             # sleep(randint(self.MIN_WAIT_TIME, self.MAX_WAIT_TIME))
-    #             # for links in dom.find_all("div"):
-    #             #     link = links.find('a')
-    #             #     if link == None or not ("class" in link.attrs):
-    #             #         continue
-    #             #     else:
-    #             #         if('commit-author' in link.attrs['class'] or 'user-mention' in link.attrs['class']):
-    #             #             print(link.attrs['href'])
-    #             #             users.append(link.attrs['href'])
-    #             print("########################")
-    #     users = set(users)
-    #     return users
-
-# if __name__ == "__main__":
-#     f = FetchData()
-#     f.fetchGithubMainPage()
