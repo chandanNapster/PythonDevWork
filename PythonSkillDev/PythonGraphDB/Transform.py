@@ -37,3 +37,19 @@ class CreateCypherQuery:
         resultString = ""
         resultString = self.__cypherString[0:int(last_index)]
         return resultString
+
+    def dropDB(self):
+        self.dropQuery = "Match (a) detach delete a"
+        return self.dropQuery
+
+
+class SearchExistingUsers:
+
+    def __init__(self):
+        self.__searchQuery = "Match (a) Return a"
+
+    def setSearchQuery(self, query):
+        self.__searchQuery = query
+
+    def getSearchQuery(self):
+        return self.__searchQuery

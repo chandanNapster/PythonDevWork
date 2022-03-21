@@ -36,14 +36,6 @@ if __name__ == "__main__":
     #     print(usres.getUserName(), usres.getUserUrl())
     # print(list)
 
-    # with open("Names.csv", 'w', newline='') as file:
-    #     fieldnames = ['User_Repo', 'User_Name', 'User_Url']
-    #     writer = csv.DictWriter(file, fieldnames=fieldnames)
-    #     writer.writeheader()
-    #     for user in UsrList:
-    #         writer.writerow({'User_Repo': user.getUserRepository(), 'User_Name': user.getUserName(),
-    #                         'User_Url': user.getUserUrl()})
-
     # cd = CreateCypherQuery(fd.GIT_HUB_SEARCH_STRING)
     # cypherStr = "Create "
     # with open("Names.csv", 'r') as file:

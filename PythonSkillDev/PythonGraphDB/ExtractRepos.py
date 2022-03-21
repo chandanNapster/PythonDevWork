@@ -1,13 +1,14 @@
-import requests as rq
+
 from bs4 import BeautifulSoup
 from time import sleep
 from random import randint
+
+import requests as rq
 
 
 class FetchData:
 
     def __init__(self):
-        # GIT_HUB_SEARCH_STRING = "girlswhocode"
         self.GIT_HUB_SEARCH_STRING = "womenwhocode"
         self.__nameListMain = []
         self.__FIRST_PAGE = 1
@@ -48,7 +49,7 @@ class FetchData:
 
     def __getAllUserData(self, total_pages):
         print(total_pages)
-        total_pages = 4
+        total_pages = 1
         for i in range(0, total_pages):
             i = i + 1
             url = self.__URL.format(i, self.GIT_HUB_SEARCH_STRING)

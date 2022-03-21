@@ -43,6 +43,7 @@ class GetUserSpecificData:
                 dom = self.__getRequestToGithub(item, length_of_list)
                 dom = dom.select(
                     "div.css-truncate.css-truncate-overflow.color-fg-muted > a")
+
                 sleep(randint(self.MIN_WAIT_TIME, self.MAX_WAIT_TIME))
                 usr = UserInfo()
 
@@ -106,3 +107,18 @@ class UserInfo:
 
     def __str__(self):
         return ("Repository : {0} || User Name : {1} || User URL : {2}".format(self.getUserRepository(), self.getUserName(), self.getUserUrl()))
+
+
+class SearchFollowers:
+    def __init__(self):
+        self.__apilink = "https://api.github.com/users/"
+
+    def callToGithubApi(self, userName):
+        url = self.__apilink + userName + "/followers"
+        response = rq.get(url, headers={'User-agent': "Mozila"})
+        response_code = response.status_code
+
+        if(response_code != 200):
+            print("Error occured")
+        else:
+            return response.json()
