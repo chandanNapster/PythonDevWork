@@ -75,7 +75,6 @@ class GetUserSpecificData:
 
 
 class UserInfo:
-
     def __init__(self, repository="", user_name="", user_url=""):
         self.user_name = user_name
         self.user_url = user_url
